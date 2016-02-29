@@ -23,6 +23,7 @@ module Apiman {
             var pageData = {
                 policyDefs: $q(function(resolve, reject) {
                     ApimanSvcs.query({ entityType: 'policyDefs' }, function(policyDefs) {
+                        console.log('policyDefs: ' + JSON.stringify(policyDefs));
                         $scope.selectedDefId = null;
                         resolve(policyDefs);
                     }, reject);
