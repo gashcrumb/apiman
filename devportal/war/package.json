@@ -2,7 +2,7 @@
   "name": "apiman-devportal",
   "version": "1.2.0",
   "description": "apiman's Dev Portal component, written principally in AngularJS",
-  "main": "dist/apiman-manager.js",
+  "main": "dist/app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/apiman/apiman.git"

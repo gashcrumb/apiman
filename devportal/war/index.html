@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>apiman Developer Portal</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="shortcut icon"
+          href="favicon.ico"
+          type="image/x-icon" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/dist/deps.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.1/es6-shim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
+    <script src="https://npmcdn.com/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+    <!-- Angular polyfill required everywhere -->
+    <script src="https://code.angularjs.org/2.0.0-beta.7/angular2-polyfills.js"></script>
+
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.7/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.7/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.7/router.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.7/http.dev.js"></script>
+
+
+    <script>
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: { emitDecoratorMetadata: true },
+            packages: {
+                'app': {defaultExtension: 'ts'}
+            }
+        });
+        System.import('app/main')
+                .then(null, console.error.bind(console));
+    </script>
 </head>
+
 <body>
 
+<example>Loading example ...</example>
+
+<!-- Scripts -->
+<script src="/dist/deps.js"></script>
+<script src="/dist/app.js"></script>
 </body>
 </html>
