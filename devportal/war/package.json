@@ -19,11 +19,57 @@
   },
   "homepage": "https://github.com/apiman/apiman#readme",
   "scripts": {
-    "build": "",
-    "test": ""
+    "build": "npm run build:bundle && build:css & build:js",
+    "build:css": "node-sass src/assets/styles/main.scss dist/assets/styles/main.css",
+    "build:js": "tsc src/{apiPortal,apis,clientApps,dashboard,shared,user}/**/*.ts",
+    "build:bundle": "browserify public/js/controllers/*.js > public/scripts.js",
+    "start": "npm run build & node app",
+    "e2e": "protractor",
+    "e2e.live": "protractor --elementExplorer",
+    "lint": "tsconfig-lint --use-glob",
+    "karma": "karma",
+    "karma.start": "karma start",
+    "postinstall": "typings install && npm prune",
+    "reinstall": "npm cache clean && rimraf typings/* && rimraf node_modules/* && npm install",
+    "watch": "npm run watch:css & npm run watch:js",
+    "watch:css": "node-sass --watch public/scss --output public/css/custom.min.css",
+    "watch:js": "watchify",
+    "webdriver-start": "webdriver-manager start",
+    "webdriver-update": "webdriver-manager update"
   },
   "dependencies": {
-    "typescript": "^1.8.2"
+    "angular2": "2.0.0-beta.7",
+    "es6-promise": "3.1.2",
+    "es6-shim": "0.33.3",
+    "patternfly": "2.5.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "0.19.23",
+    "zone.js": "0.5.15"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "async": "1.5.2",
+    "browser-sync": "^2.11.1",
+    "browserify": "13.0.0",
+    "express": "4.13.4",
+    "jasmine-core": "2.4.1",
+    "jasmine-spec-reporter": "2.4.0",
+    "karma": "0.13.21",
+    "karma-chrome-launcher": "0.2.2",
+    "karma-coverage": "0.5.3",
+    "karma-ie-launcher": "0.2.0",
+    "karma-jasmine": "0.3.7",
+    "karma-phantomjs-launcher": "1.0.0",
+    "node-sass": "3.4.2",
+    "phantomjs-prebuilt": "2.1.4",
+    "protractor": "3.1.1",
+    "remap-istanbul": "0.5.1",
+    "serve-static": "1.10.2",
+    "traceur": "0.0.102",
+    "tslint": "3.5.0",
+    "typedoc": "0.3.12",
+    "typescript": "1.8.2",
+    "typings": "0.6.8",
+    "watchify": "3.7.0"
+  }
 }

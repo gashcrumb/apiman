@@ -1,6 +1,6 @@
 import { bootstrap } from 'angular2/platform/browser';
-import { ExampleComponent } from './example.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
-bootstrap(ExampleComponent)
+bootstrap(DashboardComponent)
     .then(success => console.log(`Bootstrapped successfully...`))
     .catch(error => console.log(error));

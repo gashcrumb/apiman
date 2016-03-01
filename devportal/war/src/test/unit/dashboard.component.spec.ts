@@ -14,7 +14,7 @@ import {SpyLocation} from 'angular2/src/mock/location_mock';
 import {RootRouter} from 'angular2/src/router/router';
 
 import {DOM} from 'angular2/src/platform/dom/dom_adapter';
-import {DashboardComponent} from './dashboard.component';
+import {DashboardComponent} from '../../dashboard/dashboard.component';
 
 export function main() {
     describe('Dashboard component', () => {
@@ -36,8 +36,8 @@ export function main() {
 
 @Component({
     selector: 'test-cmp',
-    template: '<sd-dashboard></sd-dashboard>',
+    template: '<dp-dashboard></dp-dashboard>',
     directives: [DashboardComponent]
-});
+})
 
 class TestComponent {}
