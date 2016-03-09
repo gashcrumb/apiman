@@ -3,6 +3,7 @@
 deps.css
 npm-debug.log
 defs.d.ts
+dev.log
 dist
 d.ts/api-manager/
 d.ts/includes.d.ts

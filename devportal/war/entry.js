@@ -3,4 +3,6 @@
 // installed server-side with npm. Browserify will check all requires(), subsequently
 // bundling them into a single file, which we can then use on the client.
 
-//
+var angular = require('angular');
+var winston = require('winston');
+

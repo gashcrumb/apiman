@@ -1,4 +1,6 @@
 {
     "name": "Developer Portal",
-    "port": 9000
+    "log": "dev.log",
+    "port": 9000,
+    "staticDir": "dist"
 }

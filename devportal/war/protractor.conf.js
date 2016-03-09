@@ -4,6 +4,7 @@ exports.config = {
     specs: [
         'dist/dev/**/*.e2e.js'
     ],
+
     exclude: [],
 
     framework: 'jasmine2',
@@ -17,6 +18,7 @@ exports.config = {
         includeStackTrace: false,
         defaultTimeoutInterval: 400000
     },
+
     directConnect: true,
 
     capabilities: {
