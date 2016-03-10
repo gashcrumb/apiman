@@ -21,6 +21,8 @@
   "scripts": {
     "build": "npm run build:css & npm run build:js:app",
     "build:css": "node-sass src/assets/styles/main.scss --output dist/assets/styles/main.css",
+    "build:html": "html-minifier --input-dir ./src --output-dir ./dist",
+    "build:etc": "",
     "build:js:app": "browserify -p tsify src/*.ts > dist/app.js",
     "build:js:deps": "browserify entry.js -p > dist/deps.js",
     "docs": "",
