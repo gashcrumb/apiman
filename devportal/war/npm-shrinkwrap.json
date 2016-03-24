@@ -826,6 +826,28 @@
       "from": "crypto-browserify@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/crypto-browserify/-/crypto-browserify-3.11.0.tgz"
     },
+    "css": {
+      "version": "1.6.0",
+      "from": "css@>=1.6.0 <1.7.0",
+      "resolved": "https://registry.npmjs.org/css/-/css-1.6.0.tgz"
+    },
+    "css-parse": {
+      "version": "1.7.0",
+      "from": "css-parse@1.7.0",
+      "resolved": "https://registry.npmjs.org/css-parse/-/css-parse-1.7.0.tgz"
+    },
+    "css-stringify": {
+      "version": "1.4.1",
+      "from": "css-stringify@1.4.1",
+      "resolved": "https://registry.npmjs.org/css-stringify/-/css-stringify-1.4.1.tgz",
+      "dependencies": {
+        "source-map": {
+          "version": "0.1.43",
+          "from": "source-map@>=0.1.31 <0.2.0",
+          "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.1.43.tgz"
+        }
+      }
+    },
     "ctype": {
       "version": "0.5.3",
       "from": "ctype@0.5.3",
@@ -1315,6 +1337,11 @@
       "version": "0.4.1",
       "from": "finalhandler@0.4.1",
       "resolved": "https://registry.npmjs.org/finalhandler/-/finalhandler-0.4.1.tgz"
+    },
+    "find-node-modules": {
+      "version": "1.0.1",
+      "from": "find-node-modules@>=1.0.1 <2.0.0",
+      "resolved": "https://registry.npmjs.org/find-node-modules/-/find-node-modules-1.0.1.tgz"
     },
     "findup-sync": {
       "version": "0.2.1",
@@ -3076,6 +3103,11 @@
       "version": "3.3.0",
       "from": "meow@3.3.0",
       "resolved": "https://registry.npmjs.org/meow/-/meow-3.3.0.tgz"
+    },
+    "merge": {
+      "version": "1.2.0",
+      "from": "merge@>=1.2.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/merge/-/merge-1.2.0.tgz"
     },
     "merge-descriptors": {
       "version": "1.0.1",
