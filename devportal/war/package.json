@@ -24,7 +24,7 @@
     "build:css": "node-sass src/assets/styles/main.scss --output dist/assets/styles/main.css",
     "build:fonts": "mkdir -p dist/assets/fonts && rsync -a --include='*.'{eot,svg,ttf,woff} --exclude='*' node_modules/*/*/*/ dist/assets/fonts",
     "build:html": "html-minifier --input-dir src --output-dir dist",
-    "build:images": "",
+    "build:images": "mkdir -p dist/assets/images && rsync -a --include='*.'{png,gif,jpg,jpeg} --exclude='*' **/*/*/ dist/assets/images",
     "build:js:app": "browserify -p tsify src/*.ts > dist/app.js",
     "build:js:deps": "browserify entry.js -p > dist/deps.js",
     "clean": "rimraf dist/*",
