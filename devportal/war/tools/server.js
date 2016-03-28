@@ -9,7 +9,9 @@ var winston = require('winston');
 // ---------------------- Other Initialization Tasks ---->>
 var app = module.exports = express();
 var config = require(__dirname + '/config.json');
-
+var mode = process.env.mode;
+var port = config[ mode ]['port'];
+var staticDir = config[ mode ]['staticDir'];
 
 // Logging
 var logger = new winston.Logger({
@@ -27,10 +29,10 @@ var logger = new winston.Logger({
 
 
 // ---------------------- Express ---->>
-app.set('title', config['title']);
-app.set('port', process.env.PORT || config['port']);
+app.set('title', config[ mode ]['title']);
+app.set('port', process.env.PORT || port);
 app.enable('trust proxy');
-app.use( express.static( path.join( __dirname, config['staticDir'] ) ) );
+app.use( express.static( path.join( __dirname, staticDir ) ) );
 
 
 // Set up Routes
@@ -46,30 +48,17 @@ router.all('*', function(req, res, next) {
 // ---------------------- Home ---->>
 
 
-app.use(express.static(path.resolve(process.cwd(), 'dist')));
+//app.use(express.static(path.resolve(process.cwd(), 'dist')));
 
 var renderIndex = function(req, res) {
-    res.sendFile(path.resolve(__dirname, '../src/', 'index.html'));
+    res.sendFile(path.resolve(path.join( __dirname, staticDir, 'index.html')));
 };
 
 app.get('/*', renderIndex);
-
-/*
-app.use('/dist', express.static(path.resolve(__dirname, 'dist')));
-//app.use('/libs', express.static(path.resolve(__dirname, 'libs')));
-
-var renderIndex = function(req, res) {
-    res.sendFile(path.resolve(__dirname, '../', 'index.html'));
-};
-
-app.get('/*', renderIndex);
-
-app.use(router);
-*/
 
 
 // ---------------------- Start Up Server ---->>
 app.listen(app.get('port'), function() {
-    console.log('Server is listening on port ' + app.get('port') + ' in development mode.');
+    console.log('Server is listening on port ' + port + ' in '+ mode + ' mode.');
 });
 

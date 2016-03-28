@@ -1,6 +1,14 @@
 {
-    "name": "Developer Portal",
-    "log": "dev.log",
-    "port": 9000,
-    "staticDir": "dist"
+    "dev": {
+        "name": "Developer Portal",
+        "log": "dev.log",
+        "port": 1337,
+        "staticDir": "dist"
+    },
+    "production": {
+        "name": "Developer Portal",
+        "log": "prod.log",
+        "port": 7331,
+        "staticDir": "dist"
+    }
 }

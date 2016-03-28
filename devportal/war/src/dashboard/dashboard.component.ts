@@ -1,13 +1,14 @@
 import { Component } from 'angular2/core';
 
 @Component({
-    selector: 'dp-dashboard',
-    template: `
-    <h3>{{dashboard.name}}</h3>
-  `
+  selector: 'my-dashboard',
+	templateUrl: 'dashboard.component.html'
 })
-
 export class DashboardComponent {
-    dashboard = { name: 'Lex' };
-}
+	name = 'john';
+	message = '';
 
+	sayHello() {
+		this.message = 'Hello ' + this.name + '!';
+	}
+}
