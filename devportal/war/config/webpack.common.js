@@ -154,8 +154,7 @@ module.exports = {
             // SCSS Loader
             {
                 test: /\.scss$/,
-                loaders: ['raw-loader', 'sass-loader'] // sass-loader not scss-loader
-                //loaders: ['style', 'css', 'sass']
+                loaders: ['raw-loader', 'sass-loader']
             },
 
             // Fonts
