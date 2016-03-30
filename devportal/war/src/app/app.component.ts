@@ -20,7 +20,7 @@ import {RouterActive} from './router-active';
     providers: [],
     directives: [RouterActive],
     styles: [
-        require('../assets/sass/main.scss')
+        require('../assets/scss/main.scss')
     ],
     encapsulation: ViewEncapsulation.None,
     template: require('./layout.html')
