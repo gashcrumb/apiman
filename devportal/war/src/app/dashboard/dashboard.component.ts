@@ -26,7 +26,7 @@ import {XLarge} from './x-large';
 })
 export class Dashboard {
   // Set our default values
-  localState = { value: '' };
+  localState = '';
   // TypeScript public modifiers
   constructor(public appState: AppState, public title: Title) {
 

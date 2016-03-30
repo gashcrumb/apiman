@@ -3,6 +3,11 @@
  */
 import {bootstrap} from 'angular2/platform/browser';
 import {provideInitialState, hotModuleReplacement} from 'angular2-hmr';
+
+// Bootstrap & jQuery
+import 'jquery';
+import 'bootstrap-loader';
+
 /*
 * Platform and Environment
 * our providers/directives/pipes

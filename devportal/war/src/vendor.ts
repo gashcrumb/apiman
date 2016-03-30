@@ -28,8 +28,6 @@ import 'rxjs/add/operator/mergeMap';
 
 if ('production' === ENV) {
   // Production
-
-
 } else {
   // Development
 
