@@ -1,15 +1,15 @@
 <header>
-    <nav>
-        <h1>{{ title }}</h1>
-        <ul>
-            <li router-active>
-                <a [routerLink]=" ['Home'] ">Home</a>
+    <nav class="navbar navbar-fixed-top navbar-light bg-faded">
+        <a class="navbar-brand" href="/">{{ title }}</a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['Home'] ">Home</a>
             </li>
-            <li router-active>
-                <a [routerLink]=" ['About'] ">About</a>
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['About'] ">About</a>
             </li>
-            <li router-active>
-                <a [routerLink]=" ['Dashboard'] ">Dashboard</a>
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['Dashboard'] ">Dashboard</a>
             </li>
         </ul>
     </nav>
@@ -20,15 +20,15 @@
 </main>
 
 <footer>
-    <nav>
-        <ul>
-            <li router-active>
+    <nav class="navbar navbar-light bg-faded">
+        <ul class="nav navbar-nav">
+            <li class="nav-item" router-active>
                 <a [routerLink]=" ['Home'] ">Home</a>
             </li>
-            <li router-active>
+            <li class="nav-item" router-active>
                 <a [routerLink]=" ['About'] ">About</a>
             </li>
-            <li router-active>
+            <li class="nav-item" router-active>
                 <a [routerLink]=" ['Dashboard'] ">Dashboard</a>
             </li>
         </ul>
