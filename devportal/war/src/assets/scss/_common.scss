@@ -1,11 +1,40 @@
 // CSS common across all views
 
-header {}
+$footerHeight: 60px;
 
-main {
+
+html {
   position: relative;
-  top: 85px;
+  min-height: 95%;
 }
 
-footer {}
+body {
+  background: #F5F5F5;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  margin-bottom: $footerHeight;
+}
+
+header {
+  nav {
+    background: #FFFFFF;
+  }
+}
+
+main {
+  margin-top: 85px;
+}
+
+footer {
+  //background-color: #000000;
+  bottom: 0;
+  font-size: 12px;
+  height: $footerHeight;
+  left: 0;
+  position: absolute;
+  width: 100%;
+
+  .col-md-12 {
+    padding: 15px;
+  }
+}
 
