@@ -17,6 +17,15 @@ body {
 header {
   nav {
     background: #FFFFFF;
+
+    img {
+      height: 40px;
+      padding: 5px;
+    }
+
+    .navbar-brand {
+      padding: 10px;
+    }
   }
 }
 

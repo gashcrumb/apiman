@@ -33,7 +33,7 @@ import {RouterActive} from './router-active';
     {path: '/dashboard', name: 'Dashboard', component: Dashboard}
 ])
 export class App {
-    angularclassLogo = 'assets/img/angularclass-avatar.png';
+    apimanLogo = 'assets/img/apiman_logo_inline_color.png';
     title = 'Developer Portal';
     url = 'https://twitter.com/apiman_io';
 
