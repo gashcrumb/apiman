@@ -1,46 +1,36 @@
 <header>
 
     <!-- Navbar: Logged Out -->
-    <nav class="navbar navbar-fixed-top navbar-light">
+    <nav class="navbar navbar-fixed-top navbar-light loggedOut"
+         *ngIf="!loggedIn">
         <!-- Logo -->
         <a [routerLink]=" ['Home'] ">
-            <img src="{{ apimanLogo }}">
+            <img src="{{ logoWhiteBg }}">
         </a>
-        <a class="navbar-brand" [routerLink]=" ['Home'] ">{{ title }}</a>
-
-        <!-- Navigation -->
-        <!--
-        <ul class="nav navbar-nav">
-            <li class="nav-item" router-active>
-                <a class="nav-link" [routerLink]=" ['About'] ">About</a>
-            </li>
-            <li class="nav-item" router-active>
-                <a class="nav-link" [routerLink]=" ['Dashboard'] ">Dashboard</a>
-            </li>
-        </ul>
-        -->
     </nav>
 
     <!-- Navbar: Logged In -->
-    <!--
-    <nav class="navbar navbar-fixed-top navbar-light">
-        <!-- Logo --
-        <a [routerLink]=" ['Home'] ">
-            <img src="{{ apimanLogo }}">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse"
+         *ngIf="loggedIn">
+        <!-- Logo -->
+        <a class="navbar-brand"
+           [routerLink]=" ['Home'] ">
+            <img src="{{ logoDarkBg }}">
         </a>
-        <a class="navbar-brand" [routerLink]=" ['Home'] ">{{ title }}</a>
 
-        <!-- Navigation --
+        <!-- Navigation -->
         <ul class="nav navbar-nav">
-            <li class="nav-item" router-active>
-                <a class="nav-link" [routerLink]=" ['About'] ">About</a>
-            </li>
             <li class="nav-item" router-active>
                 <a class="nav-link" [routerLink]=" ['Dashboard'] ">Dashboard</a>
             </li>
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['APIs'] ">Browse APIs</a>
+            </li>
+            <li class="nav-item" router-active>
+                <a class="nav-link" [routerLink]=" ['Client Apps'] ">Client Apps</a>
+            </li>
         </ul>
     </nav>
-    -->
 </header>
 
 <main>

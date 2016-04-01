@@ -1,30 +1,56 @@
 // CSS common across all views
 
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,300italic,400italic);
 $footerHeight: 60px;
 
 
 html {
-  position: relative;
+  font-size: 100%;
   min-height: 95%;
+  position: relative;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: #F5F5F5;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  color: #333333;
+  font-family: "Lato", "Helvetica Neue", "Open Sans", "Helvetica", "Arial", "Verdana", "sans-serif";
   margin-bottom: $footerHeight;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga", "kern";
+}
+
+h2 {
+  font-size: 52px;
+  line-height: 1.07885;
+  letter-spacing: -0.016em;
+  font-weight: 200;
 }
 
 header {
   nav {
     background: #FFFFFF;
 
+    // Navbar for logged out users
+    &.loggedOut img {
+      height: 30px;
+      margin: 15px;
+    }
+
     img {
-      height: 40px;
-      padding: 5px;
+      height: 22px;
+      padding: 0;
     }
 
     .navbar-brand {
       padding: 10px;
+    }
+
+    .navbar-nav .nav-link {
+      padding-top: 9px;
     }
   }
 }
@@ -45,5 +71,13 @@ footer {
   .col-md-12 {
     padding: 15px;
   }
+}
+
+.font-thin {
+  font-weight: 300 !important;
+}
+
+.font-ultralight {
+  font-weight: 100 !important;
 }
 
