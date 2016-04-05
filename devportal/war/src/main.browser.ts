@@ -7,6 +7,7 @@ import {provideInitialState, hotModuleReplacement} from 'angular2-hmr';
 // Bootstrap & jQuery
 import 'jquery';
 import 'bootstrap-loader';
+import 'patternfly';
 
 /*
 * Platform and Environment
