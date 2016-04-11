@@ -32,6 +32,19 @@
   <!-- base url -->
   <base href="<%= webpackConfig.metadata.baseUrl %>">
 
+  <% if (webpackConfig.metadata.ENV === 'development') { %>
+  <!-- Webpack Dev Server reload -->
+  <script src="/webpack-dev-server.js"></script>
+  <% } %>
+
+  <!-- Styles -->
+  <link rel="//cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.css">
+
+  <!-- Scripts -->
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 
 </head>
 
@@ -43,10 +56,7 @@
     </app>
   </div>
 
-  <% if (webpackConfig.metadata.ENV === 'development') { %>
-  <!-- Webpack Dev Server reload -->
-  <script src="/webpack-dev-server.js"></script>
-  <% } %>
+
   
   <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 

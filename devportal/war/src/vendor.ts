@@ -15,6 +15,8 @@ import 'angular2/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+import 'patternfly/dist/js/patternfly';
+
 // Angular 2 Material 2
 // TODO(gdi2290): uncomment when material is fixed
 // import '@angular2-material/sidenav';

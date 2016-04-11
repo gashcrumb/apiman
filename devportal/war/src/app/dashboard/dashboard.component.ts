@@ -4,6 +4,8 @@ import {AppState} from '../app.service';
 import {Title} from './title';
 import {XLarge} from './x-large';
 
+declare var c3: any;
+
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
@@ -27,6 +29,7 @@ import {XLarge} from './x-large';
 export class Dashboard {
   // Set our default values
   localState = '';
+
   // TypeScript public modifiers
   constructor(public appState: AppState, public title: Title) {
 

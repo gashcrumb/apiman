@@ -7,7 +7,6 @@ import {provideInitialState, hotModuleReplacement} from 'angular2-hmr';
 // Bootstrap & jQuery
 import 'jquery';
 import 'bootstrap-loader';
-import 'patternfly';
 
 /*
 * Platform and Environment
@@ -37,7 +36,7 @@ export function main(initialState = {}) {
     ...PROVIDERS,
     ...DIRECTIVES,
     ...PIPES,
-    ...APP_PROVIDERS,
+    ...APP_PROVIDERS
   ])
   .catch(err => console.error(err));
 

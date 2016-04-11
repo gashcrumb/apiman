@@ -244,8 +244,8 @@ module.exports = {
             jQuery: 'jquery',
             $: 'jquery',
             jquery: 'jquery',
-            "Tether": 'tether',
-            "window.Tether": "tether"
+            'Tether': 'tether',
+            'window.Tether': 'tether'
         })
 
     ],
