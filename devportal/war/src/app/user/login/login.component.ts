@@ -31,7 +31,8 @@ declare var $:any;
 export class Login implements OnInit {
     // Set our default values
     localState = '';
-    pageTitle: string = 'Login';
+    loggedIn = false;
+    pageTitle: string = 'Sign In';
 
     // TypeScript public modifiers
     constructor(public appState:AppState, public title:Title) {

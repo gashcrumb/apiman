@@ -59,7 +59,7 @@ export class Dashboard implements OnInit {
                 }
             },
             bindto: '#chart',
-            color: '',
+            //color: '',
             data: {
                 columns: [
                     ['x', '2015-04-01', '2015-04-02', '2015-04-03', '2015-04-04', '2015-04-05', '2015-04-06', '2015-04-07'],
@@ -88,11 +88,13 @@ export class Dashboard implements OnInit {
         donutChartConfig.bindto = '#chart2';
         donutChartConfig.tooltip = {show: true};
         donutChartConfig.data = {
+            /*
             colors: {
                 Cloud: '#006e9c',
                 Virtual: '#00a8e1',
                 Baremetal: '#969696'
             },
+            */
             columns: [
                 ['Cloud', 4,828],
                 ['Virtual', 13,258],
@@ -124,7 +126,7 @@ export class Dashboard implements OnInit {
                 }
             },
             bindto: '#chart4',
-            color: '',
+            //color: '',
             data: {
                 columns: [
                     ['Virtual Resources', 25, 35, 18, 78],
