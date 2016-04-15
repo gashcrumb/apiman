@@ -31,6 +31,7 @@ declare var $:any;
 export class Dashboard implements OnInit {
     // Set our default values
     localState = '';
+    pageTitle: string = 'Dashboard';
 
     // TypeScript public modifiers
     constructor(public appState:AppState, public title:Title) {
@@ -40,36 +41,6 @@ export class Dashboard implements OnInit {
     ngOnInit() {
         console.log('Loaded `Dashboard` component');
         // this.title.getData().subscribe(data => this.data = data);
-
-        /*
-        c3.generate({
-            data: {
-                columns: [
-                    ['data1', 300, 350, 300, 0, 0, 0],
-                    ['data2', 130, 100, 140, 200, 150, 50]
-                ],
-                types: {
-                    data1: 'area',
-                    data2: 'area-spline'
-                }
-            },
-            axis: {
-                y: {
-                    padding: {
-                        bottom: 0
-                    },
-                    min: 0
-                },
-                x: {
-                    padding: {
-                        left: 0
-                    },
-                    min: 0,
-                    show: false
-                }
-            }
-        });
-        */
 
         c3.generate({
             axis: {
@@ -82,7 +53,7 @@ export class Dashboard implements OnInit {
                 },
                 y: {
                     tick: {
-                        format: function(d) { return d + "%"; },
+                        format: function(d) { return d + '%'; },
                         outer: false
                     }
                 }
@@ -128,9 +99,9 @@ export class Dashboard implements OnInit {
                 ['Baremetal', 11,1124]
             ],
             type : 'donut',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            onclick: function (d, i) { console.log('onclick', d, i); },
+            onmouseover: function (d, i) { console.log('onmouseover', d, i); },
+            onmouseout: function (d, i) { console.log('onmouseout', d, i); }
         };
 
         c3.generate(donutChartConfig);
@@ -147,7 +118,7 @@ export class Dashboard implements OnInit {
                 },
                 y: {
                     tick: {
-                        format: function(d) { return d + "%"; },
+                        format: function(d) { return d + '%'; },
                         outer: false
                     }
                 }

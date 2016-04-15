@@ -1,13 +1,17 @@
-import {Component} from 'angular2/core';
-import {AppState} from '../app.service';
+import {Component, OnInit} from 'angular2/core';
+import {AppState} from '../../app.service';
 
-import {Title} from './title';
-import {XLarge} from './x-large';
+import {Title} from '../title';
+import {XLarge} from '../x-large';
+
+declare var c3:any;
+declare var $:any;
+
 
 @Component({
     // The selector is what angular internally uses
     // for `document.querySelectorAll(selector)` in our index.html
-    selector: 'apis',
+    selector: 'login',
     // We need to tell Angular's Dependency Injection which providers are in our app.
     providers: [
         Title
@@ -20,14 +24,14 @@ import {XLarge} from './x-large';
     // We need to tell Angular's compiler which custom pipes are in our template.
     pipes: [],
     // Our list of styles in our component. We may add more to compose many styles together
-    styles: [require('./apis.scss')],
+    styles: [require('./login.scss')],
     // Every Angular template is first compiled by the browser before Angular runs it's compiler
-    template: require('./apis.html')
+    template: require('./login.html')
 })
-export class APIs {
+export class Login implements OnInit {
     // Set our default values
     localState = '';
-    pageTitle: string = 'Browse APIs';
+    pageTitle: string = 'Login';
 
     // TypeScript public modifiers
     constructor(public appState:AppState, public title:Title) {
@@ -35,7 +39,7 @@ export class APIs {
     }
 
     ngOnInit() {
-        console.log('Loaded `APIs` component');
+        console.log('Loaded `Login` component');
         // this.title.getData().subscribe(data => this.data = data);
     }
 

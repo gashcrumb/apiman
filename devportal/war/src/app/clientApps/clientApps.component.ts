@@ -27,6 +27,8 @@ import {XLarge} from './x-large';
 export class ClientApps {
   // Set our default values
   localState = '';
+  pageTitle: string = 'Client Apps';
+
   // TypeScript public modifiers
   constructor(public appState: AppState, public title: Title) {
 

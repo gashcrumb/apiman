@@ -7,7 +7,7 @@ import {XLarge} from './x-large';
 @Component({
     // The selector is what angular internally uses
     // for `document.querySelectorAll(selector)` in our index.html
-    selector: 'apis',
+    selector: 'portal',
     // We need to tell Angular's Dependency Injection which providers are in our app.
     providers: [
         Title
@@ -20,14 +20,14 @@ import {XLarge} from './x-large';
     // We need to tell Angular's compiler which custom pipes are in our template.
     pipes: [],
     // Our list of styles in our component. We may add more to compose many styles together
-    styles: [require('./apis.scss')],
+    styles: [require('./portal.scss')],
     // Every Angular template is first compiled by the browser before Angular runs it's compiler
-    template: require('./apis.html')
+    template: require('./portal.html')
 })
-export class APIs {
+export class Portal {
     // Set our default values
     localState = '';
-    pageTitle: string = 'Browse APIs';
+    pageTitle: string = 'API Portal';
 
     // TypeScript public modifiers
     constructor(public appState:AppState, public title:Title) {
@@ -35,7 +35,7 @@ export class APIs {
     }
 
     ngOnInit() {
-        console.log('Loaded `APIs` component');
+        console.log('Loaded `API Portal` component');
         // this.title.getData().subscribe(data => this.data = data);
     }
 
