@@ -33,7 +33,7 @@ import {Reset} from './user';
         require('../assets/scss/main.scss')
     ],
     encapsulation: ViewEncapsulation.None,
-    template: require('./layout.html')
+    template: require('./index.html')
 })
 @RouteConfig([
     {path: '/', name: 'Home', component: Home, useAsDefault: true},
