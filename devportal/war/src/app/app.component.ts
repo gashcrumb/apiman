@@ -53,7 +53,7 @@ export class App {
     url = 'https://twitter.com/apiman_io';
     loggedIn = true;
     //loggedIn = false;
-
+    
     constructor(public appState:AppState) {
     }
 

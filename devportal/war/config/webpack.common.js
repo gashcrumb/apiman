@@ -148,7 +148,7 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'raw-loader',
-                exclude: [helpers.root('src/index.html')]
+                exclude: [helpers.root('src/layout.html')]
             },
 
             // SCSS Loader
@@ -221,7 +221,7 @@ module.exports = {
         //
         // See: https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            template: 'src/index.html',
+            template: 'src/layout.html',
             chunksSortMode: 'none'
         }),
 
