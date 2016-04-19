@@ -78,12 +78,8 @@ header {
 main {
   margin-top: 65px;
 
-  div:first-child {
-    padding: 20px 20px 0;
-  }
-
-  div.no-padding {
-    padding: 0;
+  div.padded {
+    padding: 50px 30px 0;
   }
 
 }
