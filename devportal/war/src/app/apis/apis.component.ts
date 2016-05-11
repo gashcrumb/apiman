@@ -1,5 +1,8 @@
 import {Component} from 'angular2/core';
 import {AppState} from '../app.service';
+import {Http, Response} from 'angular2/http';
+//import {NgFor} from 'angular2/core';
+import {Observable} from 'rxjs/Rx';
 
 import {Title} from './title';
 import {XLarge} from './x-large';
@@ -15,6 +18,7 @@ import {XLarge} from './x-large';
     // We need to tell Angular's compiler which directives are in our template.
     // Doing so will allow Angular to attach our behavior to an element
     directives: [
+        //NgFor,
         XLarge
     ],
     // We need to tell Angular's compiler which custom pipes are in our template.
@@ -28,16 +32,31 @@ export class APIs {
     // Set our default values
     localState = '';
     pageTitle: string = 'Browse APIs';
+    apis: string; // Did not have to declare `public` here, it is public by default
+    
 
     // TypeScript public modifiers
-    constructor(public appState:AppState, public title:Title) {
+    constructor(private http: Http, public appState:AppState, public title:Title) {
 
     }
 
     ngOnInit() {
         console.log('Loaded `APIs` component');
         // this.title.getData().subscribe(data => this.data = data);
+        //this.getApis();
     }
+
+
+    getApis() {
+        this.http.get('../data/apis.json')
+            .map((res:Response) => res.json())
+            .subscribe(
+                data => { this.apis = data},
+                err => console.error(err),
+                () => console.log('done')
+            );
+    }
+
 
     submitState(value) {
         console.log('submitState', value);
