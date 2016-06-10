@@ -51,8 +51,20 @@ module Apiman {
         }]);
 
     export var ClientEntityController = _module.controller("Apiman.ClientEntityController",
-        ['$q', '$uibModal', '$scope', '$rootScope', '$location', 'ActionSvcs', 'Logger', 'Dialogs', 'PageLifecycle', '$routeParams', 'OrgSvcs', 'EntityStatusSvc', 'Configuration',
-        ($q, $uibModal, $scope, $rootScope, $location, ActionSvcs, Logger, Dialogs, PageLifecycle, $routeParams, OrgSvcs, EntityStatusSvc, Configuration) => {
+        [
+            '$q',
+            '$uibModal',
+            '$scope',
+            '$rootScope',
+            '$location',
+            'ActionSvcs',
+            'Logger',
+            'PageLifecycle',
+            '$routeParams',
+            'OrgSvcs',
+            'EntityStatusSvc',
+            'Configuration',
+        ($q, $uibModal, $scope, $rootScope, $location, ActionSvcs, Logger, PageLifecycle, $routeParams, OrgSvcs, EntityStatusSvc, Configuration) => {
             var params = $routeParams;
 
             $scope.setEntityStatus = EntityStatusSvc.setEntityStatus;
@@ -105,6 +117,8 @@ module Apiman {
 
             $scope.unregisterClient = function() {
                 $scope.unregisterButton.state = 'in-progress';
+                // Replace with UI-Bootstrap
+                /*
                 Dialogs.confirm('Confirm Unregister App', 'Do you really want to unregister the Client App?  This cannot be undone.', function() {
                     var unregisterAction = {
                         type: 'unregisterClient',
@@ -120,6 +134,7 @@ module Apiman {
                 }, function() {
                     $scope.unregisterButton.state = 'complete';
                 });
+                */
             };
 
             $scope.updateClientDescription = function(updatedDescription) {
