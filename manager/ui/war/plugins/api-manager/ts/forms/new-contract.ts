@@ -112,118 +112,116 @@ module Apiman {
                     });
                 };
 
-                $scope.selectApi = function () {
-                    var options = {
-                        publishedOnly: true,
-                        title: 'Select an API'
-                    };
+                var options = {
+                    publishedOnly: true,
+                    title: 'Select an API'
+                };
 
-                    $scope.animationsEnabled = true;
+                $scope.animationsEnabled = true;
 
-                    $scope.open = function (size) {
-                        var modalInstance = $uibModal.open({
-                            animation: $scope.animationsEnabled,
-                            templateUrl: 'selectApiModal.html',
-                            controller: 'SelectApiCtrl',
-                            size: size,
-                            resolve: {
-                                options: function () {
-                                    return options;
-                                }
+                $scope.open = function (size) {
+                    var modalInstance = $uibModal.open({
+                        animation: $scope.animationsEnabled,
+                        templateUrl: 'selectApiModal.html',
+                        controller: 'SelectApiCtrl',
+                        size: size,
+                        resolve: {
+                            options: function () {
+                                return options;
                             }
-                        });
-
-                        modalInstance.result.then(function (apiVersion) {
-                            $scope.selectedApi = apiVersion;
-                        }, function () {
-                            //console.log('Modal dismissed at: ' + new Date());
-                        });
-                    };
-
-                    $scope.toggleAnimation = function () {
-                        $scope.animationsEnabled = !$scope.animationsEnabled;
-                    };
-
-                    $scope.changedPlan = function (newValue) {
-                        $scope.selectedPlan = newValue;
-                    };
-
-                    $scope.$watch('selectedApi', function (newValue) {
-                        if (!newValue) {
-                            $scope.plans = undefined;
-                            $scope.selectedPlan = undefined;
-
-                            return;
                         }
+                    });
 
-                        Logger.debug('Api selection made, fetching plans.');
+                    modalInstance.result.then(function (apiVersion) {
+                        $scope.selectedApi = apiVersion;
+                    }, function () {
+                        //console.log('Modal dismissed at: ' + new Date());
+                    });
+                };
 
-                        OrgSvcs.query({
-                            organizationId: newValue.organizationId,
-                            entityType: 'apis',
-                            entityId: newValue.id,
-                            versionsOrActivity: 'versions',
-                            version: newValue.version,
-                            policiesOrActivity: 'plans'
-                        }, function (plans) {
-                            $scope.plans = plans;
-                            Logger.debug('Found {0} plans: {1}.', plans.length, plans);
+                $scope.toggleAnimation = function () {
+                    $scope.animationsEnabled = !$scope.animationsEnabled;
+                };
 
-                            if (plans.length > 0) {
-                                if (planId) {
-                                    for (var i = 0; i < plans.length; i++) {
-                                        if (plans[i].planId == planId) {
-                                            $scope.selectedPlan = plans[i];
-                                        }
-                                    }
-                                } else {
-                                    $scope.selectedPlan = undefined;
+                $scope.changedPlan = function (newValue) {
+                    $scope.selectedPlan = newValue;
+                };
 
-                                    if (plans.length > 0) {
-                                        $scope.selectedPlan = plans[0];
+                $scope.$watch('selectedApi', function (newValue) {
+                    if (!newValue) {
+                        $scope.plans = undefined;
+                        $scope.selectedPlan = undefined;
+
+                        return;
+                    }
+
+                    Logger.debug('Api selection made, fetching plans.');
+
+                    OrgSvcs.query({
+                        organizationId: newValue.organizationId,
+                        entityType: 'apis',
+                        entityId: newValue.id,
+                        versionsOrActivity: 'versions',
+                        version: newValue.version,
+                        policiesOrActivity: 'plans'
+                    }, function (plans) {
+                        $scope.plans = plans;
+                        Logger.debug('Found {0} plans: {1}.', plans.length, plans);
+
+                        if (plans.length > 0) {
+                            if (planId) {
+                                for (var i = 0; i < plans.length; i++) {
+                                    if (plans[i].planId == planId) {
+                                        $scope.selectedPlan = plans[i];
                                     }
                                 }
                             } else {
-                                $scope.plans = undefined;
+                                $scope.selectedPlan = undefined;
+
+                                if (plans.length > 0) {
+                                    $scope.selectedPlan = plans[0];
+                                }
                             }
-                        }, PageLifecycle.handleError);
-                    });
+                        } else {
+                            $scope.plans = undefined;
+                        }
+                    }, PageLifecycle.handleError);
+                });
 
-                    $scope.isDisabled = function () {
-                        return (!$scope.selectedClient || !$scope.selectedClientVersion || !$scope.selectedPlan || !$scope.selectedApi);
-                    };
-
-                    $scope.createContract = function () {
-                        Logger.log('Creating new contract from {0}/{1} ({2}) to {3}/{4} ({5}) through the {6} plan!',
-                            $scope.selectedClient.organizationName, $scope.selectedClient.name, $scope.selectedClientVersion,
-                            $scope.selectedApi.organizationName, $scope.selectedApi.name, $scope.selectedApi.version,
-                            $scope.selectedPlan.planName);
-
-                        $scope.createButton.state = 'in-progress';
-
-                        var newContract = {
-                            apiOrgId: $scope.selectedApi.organizationId,
-                            apiId: $scope.selectedApi.id,
-                            apiVersion: $scope.selectedApi.version,
-                            planId: $scope.selectedPlan.planId
-                        };
-
-                        OrgSvcs.save({
-                            organizationId: $scope.selectedClient.organizationId,
-                            entityType: 'clients',
-                            entityId: $scope.selectedClient.id,
-                            versionsOrActivity: 'versions',
-                            version: $scope.selectedClientVersion,
-                            policiesOrActivity: 'contracts'
-                        }, newContract, function (reply) {
-                            PageLifecycle.redirectTo('/orgs/{0}/clients/{1}/{2}/contracts', $scope.selectedClient.organizationId, $scope.selectedClient.id, $scope.selectedClientVersion);
-                        }, PageLifecycle.handleError);
-                    };
-
-                    PageLifecycle.loadPage('NewContract', undefined, pageData, $scope, function () {
-                        PageLifecycle.setPageTitle('new-contract');
-                    });
+                $scope.isDisabled = function () {
+                    return (!$scope.selectedClient || !$scope.selectedClientVersion || !$scope.selectedPlan || !$scope.selectedApi);
                 };
+
+                $scope.createContract = function () {
+                    Logger.log('Creating new contract from {0}/{1} ({2}) to {3}/{4} ({5}) through the {6} plan!',
+                        $scope.selectedClient.organizationName, $scope.selectedClient.name, $scope.selectedClientVersion,
+                        $scope.selectedApi.organizationName, $scope.selectedApi.name, $scope.selectedApi.version,
+                        $scope.selectedPlan.planName);
+
+                    $scope.createButton.state = 'in-progress';
+
+                    var newContract = {
+                        apiOrgId: $scope.selectedApi.organizationId,
+                        apiId: $scope.selectedApi.id,
+                        apiVersion: $scope.selectedApi.version,
+                        planId: $scope.selectedPlan.planId
+                    };
+
+                    OrgSvcs.save({
+                        organizationId: $scope.selectedClient.organizationId,
+                        entityType: 'clients',
+                        entityId: $scope.selectedClient.id,
+                        versionsOrActivity: 'versions',
+                        version: $scope.selectedClientVersion,
+                        policiesOrActivity: 'contracts'
+                    }, newContract, function (reply) {
+                        PageLifecycle.redirectTo('/orgs/{0}/clients/{1}/{2}/contracts', $scope.selectedClient.organizationId, $scope.selectedClient.id, $scope.selectedClientVersion);
+                    }, PageLifecycle.handleError);
+                };
+
+                PageLifecycle.loadPage('NewContract', undefined, pageData, $scope, function () {
+                    PageLifecycle.setPageTitle('new-contract');
+                });
             }
         ]
     );
