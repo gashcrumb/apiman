@@ -123,7 +123,7 @@ module Apiman {
                     var modalInstance = $uibModal.open({
                         animation: $scope.animationsEnabled,
                         templateUrl: 'selectApiModal.html',
-                        controller: 'SelectApiCtrl',
+                        controller: 'ModalSelectApiCtrl',
                         size: size,
                         resolve: {
                             options: function () {
