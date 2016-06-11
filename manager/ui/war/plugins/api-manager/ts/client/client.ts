@@ -139,6 +139,7 @@ module Apiman {
                 var modalInstance = $uibModal.open({
                     animation: $scope.animationsEnabled,
                     templateUrl: 'confirmModal.html',
+                    //templateUrl: 'modal.html',
                     controller: 'ModalConfirmCtrl',
                     size: size,
                     resolve: {
