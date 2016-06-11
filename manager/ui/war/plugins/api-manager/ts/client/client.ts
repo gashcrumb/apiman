@@ -105,12 +105,14 @@ module Apiman {
             $scope.registerClient = function() {
                 $scope.registerButton.state = 'in-progress';
                 $scope.reregisterButton.state = 'in-progress';
+                
                 var registerAction = {
                     type: 'registerClient',
                     entityId: params.client,
                     organizationId: params.org,
                     entityVersion: params.version
                 };
+                
                 ActionSvcs.save(registerAction, function(reply) {
                     $scope.version.publishedOn = Date.now();
                     $scope.registerButton.state = 'complete';
@@ -136,8 +138,8 @@ module Apiman {
 
                 var modalInstance = $uibModal.open({
                     animation: $scope.animationsEnabled,
-                    templateUrl: 'selectApiModal.html',
-                    controller: 'ModalSelectApiCtrl',
+                    templateUrl: 'confirmModal.html',
+                    controller: 'ModalConfirmCtrl',
                     size: size,
                     resolve: {
                         options: function () {
@@ -161,6 +163,7 @@ module Apiman {
                     }, PageLifecycle.handleError);
                 }, function () {
                     //console.log('Modal dismissed at: ' + new Date());
+                    $scope.unregisterButton.state = 'complete';
                 });
 
             };
