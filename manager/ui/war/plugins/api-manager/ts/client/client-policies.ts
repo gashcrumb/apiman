@@ -63,16 +63,6 @@ module Apiman {
                 }, function () {
                     //console.log('Modal dismissed at: ' + new Date());
                 });
-                
-                /*
-                Dialogs.confirm('Confirm Remove Policy', 'Do you really want to remove this policy from the client app?', function() {
-                    OrgSvcs.delete({ organizationId: params.org, entityType: 'clients', entityId: params.client, versionsOrActivity: 'versions', version: params.version, policiesOrActivity: 'policies', policyId: policy.id }, function(reply) {
-                        removePolicy(policy);
-                        EntityStatusSvc.getEntity().modifiedOn = Date.now();
-                        EntityStatusSvc.getEntity().modifiedBy = CurrentUser.getCurrentUser();
-                    }, PageLifecycle.handleError);
-                });
-                */
             };
 
             $scope.reorderPolicies = function(reorderedPolicies) {
